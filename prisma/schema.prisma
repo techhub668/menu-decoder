@@ -1,0 +1,51 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model GenericDish {
+  id           Int      @id @default(autoincrement())
+  cuisine      String
+  dishName     String
+  origLang     String
+  engLang      String
+  prefLang     String   @default("")
+  prefLangCode String   @default("en")
+  imageUrl     String   @default("")
+  ingredients  String   @default("")
+  taste        String   @default("")
+  eatMethod    String   @default("")
+  sauces       String   @default("")
+  avgPrice     String   @default("")
+  createdAt    DateTime @default(now())
+
+  @@unique([cuisine, dishName, prefLangCode])
+  @@index([cuisine])
+}
+
+model RestaurantCache {
+  id           Int      @id @default(autoincrement())
+  placeId      String   @unique
+  name         String
+  address      String   @default("")
+  geoLat       Float    @default(0)
+  geoLng       Float    @default(0)
+  topDishesJson String  @default("[]")
+  reviewsJson   String  @default("[]")
+  imageUrl     String   @default("")
+  lastUpdated  DateTime @default(now())
+
+  @@index([name])
+}
+
+model DailyApiUsage {
+  id          Int      @id @default(autoincrement())
+  date        String   @unique
+  googleCalls Int      @default(0)
+  yelpCalls   Int      @default(0)
+  llmCalls    Int      @default(0)
+}
