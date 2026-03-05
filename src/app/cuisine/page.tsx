@@ -62,13 +62,29 @@ export default function CuisinePage() {
           <Link href="/" className="text-2xl font-bold">
             Menu<span className="text-orange-500">Decoder</span>
           </Link>
-          <nav className="flex gap-4 text-sm">
+          <nav className="flex items-center gap-4 text-sm">
             <Link href="/cuisine" className="font-medium text-orange-500">
               Cuisine Explorer
             </Link>
             <Link href="/restaurant" className="text-gray-500 hover:text-gray-800">
               Restaurant Search
             </Link>
+            <a
+              href="https://webapp.cryptopassiveincome.xyz/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-lg bg-purple-600 px-4 py-2 font-medium text-white transition hover:bg-purple-700"
+            >
+              More Apps
+            </a>
+            <a
+              href="https://cryptopassiveincome.xyz"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-lg bg-purple-600 px-4 py-2 font-medium text-white transition hover:bg-purple-700"
+            >
+              Home
+            </a>
           </nav>
         </div>
       </header>
