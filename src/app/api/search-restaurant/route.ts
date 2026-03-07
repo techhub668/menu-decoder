@@ -186,7 +186,8 @@ export async function GET(request: NextRequest) {
   }
 
   // Tier 2: Fallback to Google
-  if (await canCallGoogle()) {
+  const googleCheck = await canCallGoogle();
+  if (googleCheck.allowed) {
     await incrementGoogle();
     const googleResult = await searchGoogle(restaurantName, location);
     if (googleResult && googleResult.reviews.length > 0) {

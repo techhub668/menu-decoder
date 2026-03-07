@@ -49,3 +49,10 @@ model DailyApiUsage {
   yelpCalls   Int      @default(0)
   llmCalls    Int      @default(0)
 }
+
+model GoogleCircuitBreaker {
+  id              Int      @id @default(autoincrement())
+  windowStart     DateTime @default(now())
+  callCount       Int      @default(0)
+  disabledUntil   DateTime?
+}
