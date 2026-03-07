@@ -6,8 +6,8 @@ const LIMITS = {
   llm: 200,
 };
 
-// Circuit breaker: 500 calls in a 24hr rolling window -> disabled for 8 hours
-const GOOGLE_CIRCUIT_BREAKER_LIMIT = 500;
+// Circuit breaker: 300 calls in a 24hr rolling window -> disabled for 8 hours
+const GOOGLE_CIRCUIT_BREAKER_LIMIT = 300;
 const GOOGLE_CIRCUIT_BREAKER_WINDOW_MS = 24 * 60 * 60 * 1000; // 24 hours
 const GOOGLE_CIRCUIT_BREAKER_COOLDOWN_MS = 8 * 60 * 60 * 1000; // 8 hours
 
