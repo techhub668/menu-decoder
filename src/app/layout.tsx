@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -15,6 +16,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen bg-gray-50 text-gray-900 antialiased">
+        <Script
+          src="https://crypto-analytics-dashboard-sand.vercel.app/tracker.js"
+          data-site="menu"
+          strategy="afterInteractive"
+        />
         {children}
       </body>
     </html>
